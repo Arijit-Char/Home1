@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import { Link } from 'react-scroll';
 import '../App.scss';
 import About from '../components/About';
 import Skills from '../components/Skills';
@@ -92,40 +92,40 @@ function Home() {
                     </div>
                     <ul className="nav nav-ul">
                         <li>
-                            <a className="nav-link" href="#home">
+                            <Link className="nav-link" activeClass="active" to="home" spy={true} smooth={true} offset={50} duration={500}>
                                 <i className="fas fa-house-damage" />
                                 <span>Home</span>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a className="nav-link" href="#about">
+                            <Link className="nav-link" activeClass="active" to="about" spy={true} smooth={true} offset={50} duration={500}>
                                 <i className="far fa-address-card" />
                                 <span>About Me</span>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a className="nav-link" href="#services">
+                            <Link className="nav-link" activeClass="active" to="services" spy={true} smooth={true} offset={50} duration={500}>
                                 <i className="fas fa-concierge-bell" />
                                 <span>Services</span>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a className="nav-link" href="#work">
+                            <Link className="nav-link" activeClass="active" to="work" spy={true} smooth={true} offset={50} duration={500}>
                                 <i className="fas fa-briefcase" />
                                 <span>Portfolio</span>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a className="nav-link" href="#blog">
+                            <Link className="nav-link" activeClass="active" to="blog" spy={true} smooth={true} offset={50} duration={500}>
                                 <i className="fas fa-blog" />
                                 <span>Blog</span>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a className="nav-link" href="#contactus">
+                            <Link className="nav-link" activeClass="active" to="contactus" spy={true} smooth={true} offset={50} duration={500}>
                                 <i className="fas fa-id-card-alt" />
                                 <span>Contact</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </header>
