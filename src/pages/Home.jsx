@@ -11,6 +11,8 @@ import Contact from '../components/Contact';
 import Footer from '../layouts/Footer';
 import TypingAnimation from '../components/TypingAnimation';
 import { FaICursor } from 'react-icons/fa';
+import Testiminails from '../components/Testiminails';
+import { tony } from '../layouts/utils';
 function Home() {
     const params = useParams();
     const navigate = useNavigate();
@@ -56,7 +58,9 @@ function Home() {
     const filteredEducation = user?.timeline?.filter((item) => item.forEducation && item.enabled);
     const filteredExperience = user?.timeline?.filter((item) => !item.forEducation && item.enabled);
     const filteredAbout = user?.about;
-
+    useEffect(() => {
+        tony.scrollToActiveNav();
+    }, []);
     const [toggle, setToggle] = useState(false);
 
     if (filteredAbout === undefined) {
@@ -178,7 +182,7 @@ function Home() {
                     <Work work={sortedFilteredProject} about={filteredAbout} />
                     {/* End work */}
                     {/* Testiminails */}
-                    {/* <Testiminails /> */}
+                    <Testiminails testimonials={filteredTestimonials} />
                     <div>Testimonials</div>
                     {/* End Testiminails */}
                     {/* Blog */}
