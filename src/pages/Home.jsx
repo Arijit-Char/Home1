@@ -60,10 +60,10 @@ function Home() {
     const [toggle, setToggle] = useState(false);
 
     if (filteredAbout === undefined) {
-        return <div className="w-full h-screen bg-black flex items-center justify-center text-center">Loading..</div>; 
+        return <div className="w-full h-screen bg-black flex items-center justify-center text-center">Loading..</div>;
     }
     return (
-        <>  
+        <>
             <Fragment>
                 <div className="mob-header">
                     <div className="d-flex">
@@ -143,9 +143,7 @@ function Home() {
                                             I Am Passionate &nbsp;
                                             <TypingAnimation />
                                         </h2>
-                                        <p>
-                                            {filteredAbout.quote}
-                                        </p>
+                                        <p>{filteredAbout.quote}</p>
                                         <div className="btn-bar go-to">
                                             <a className="m-btn m-btn-theme" href="#work">
                                                 my work
@@ -177,16 +175,16 @@ function Home() {
                     <Services services={filteredServices} />
                     {/* End resume */}
                     {/* Work */}
-                    <Work work={sortedFilteredProject} about={filteredAbout}/>
+                    <Work work={sortedFilteredProject} about={filteredAbout} />
                     {/* End work */}
                     {/* Testiminails */}
                     {/* <Testiminails /> */}
                     <div>Testimonials</div>
                     {/* End Testiminails */}
                     {/* Blog */}
-                    <Blog />
+                    <Blog services={filteredServices} about={filteredAbout} />
                     {/* End Blog */}
-                    <Contact />
+                    <Contact about={filteredAbout} />
                 </main>
                 <Footer />
             </Fragment>

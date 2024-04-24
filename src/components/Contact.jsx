@@ -1,7 +1,7 @@
 import emailjs from "emailjs-com";
 import { useState } from "react";
 
-const Contact = () => {
+const Contact = ({about}) => {
   const [mailData, setMailData] = useState({
     name: "",
     email: "",
@@ -162,7 +162,7 @@ const Contact = () => {
               <div className="media-body">
                 <h6 className="dark-color font-alt">Our Address</h6>
                 <p>
-                  123 Stree New York City , United States Of America 750065.
+                 {about.address}
                 </p>
               </div>
             </div>
@@ -173,9 +173,9 @@ const Contact = () => {
               <div className="media-body">
                 <h6 className="dark-color font-alt">Our Phone</h6>
                 <p>
-                  Office: +004 44444 44444
+                  Office: {about.phoneNumber}
                   <br />
-                  Office: +004 44444 44444
+                  Office: {about.phoneNumber}
                   <br />
                 </p>
               </div>
@@ -187,9 +187,9 @@ const Contact = () => {
               <div className="media-body">
                 <h6 className="dark-color font-alt">Our Email</h6>
                 <p>
-                  info@domainname.com
+                  {about.contactEmail}
                   <br />
-                  contact@domainname.com
+                  {about.contactEmail}
                 </p>
               </div>
             </div>
