@@ -44,7 +44,7 @@ function Home() {
 
         fetchUserData();
     }, [params?.user, userId, navigate]);
- 
+
     console.log(user);
 
     // filtering all the data from the API
@@ -57,16 +57,13 @@ function Home() {
     const filteredExperience = user?.timeline?.filter((item) => !item.forEducation && item.enabled);
     const filteredAbout = user?.about;
 
-    // if (isLoading) {
-    //     return <div className="w-full h-screen bg-black flex items-center justify-center text-center">Loading..</div>;     //Need to Fix
-    // }
     const [toggle, setToggle] = useState(false);
-    if(filteredAbout === undefined){
-        return <div>Loading...</div>;
-    }
 
+    if (filteredAbout === undefined) {
+        return <div className="w-full h-screen bg-black flex items-center justify-center text-center">Loading..</div>; 
+    }
     return (
-        <>
+        <>  
             <Fragment>
                 <div className="mob-header">
                     <div className="d-flex">
@@ -147,8 +144,7 @@ function Home() {
                                             <TypingAnimation />
                                         </h2>
                                         <p>
-                                            The namics of how users interact with interactive elements within a user interface flow chart based on
-                                            container proportion.
+                                            {filteredAbout.quote}
                                         </p>
                                         <div className="btn-bar go-to">
                                             <a className="m-btn m-btn-theme" href="#work">
@@ -175,13 +171,13 @@ function Home() {
                     <About about={filteredAbout} social={filteredSocialHandles} />
                     {/* end about us */}
                     {/* fun */}
-                    <Skills />
+                    <Skills skills={sortedFilteredSkills} />
                     {/* End fun */}
                     {/* resume */}
-                    <Services />
+                    <Services services={filteredServices} />
                     {/* End resume */}
                     {/* Work */}
-                    <Work />
+                    <Work work={sortedFilteredProject} about={filteredAbout}/>
                     {/* End work */}
                     {/* Testiminails */}
                     {/* <Testiminails /> */}

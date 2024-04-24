@@ -4,10 +4,6 @@ import { FaTwitter } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa';
 
 const About = ({ about, social }) => {
-    if (!about) {
-        return <div>Loading...</div>;
-    }
-    console.log(about);
     return (
         <section id="about" className="section gray-bg">
             <div className="container">
@@ -74,7 +70,7 @@ const About = ({ about, social }) => {
                                     </div>
                                     <div className="media">
                                         <label>Phone</label>
-                                        <p>{about.contactEmail}</p>
+                                        <p>{about.phoneNumber}</p>
                                     </div>
                                     <div className="media">
                                         <label>Skype</label>
