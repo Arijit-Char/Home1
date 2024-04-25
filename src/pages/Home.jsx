@@ -10,14 +10,15 @@ import Blog from '../components/Blog';
 import Contact from '../components/Contact';
 import Footer from '../layouts/Footer';
 import TypingAnimation from '../components/TypingAnimation';
-import { FaICursor } from 'react-icons/fa';
-import Testiminails from '../components/Testiminails';
-import { tony } from '../layouts/utils';
+import Testimonials from '../components/Testiminails';
+
 function Home() {
+    const [activeLink, setActiveLink] = useState('home');
+
     const params = useParams();
     const navigate = useNavigate();
 
-    const userId = '65b3a22c01d900e96c4219ae'; //John doe
+    const userId = '65b3a22c01d900e96c4219ae'; // John doe
 
     const BASE_URL = 'https://portfolio-backend-30mp.onrender.com/api/v1';
 
@@ -58,14 +59,13 @@ function Home() {
     const filteredEducation = user?.timeline?.filter((item) => item.forEducation && item.enabled);
     const filteredExperience = user?.timeline?.filter((item) => !item.forEducation && item.enabled);
     const filteredAbout = user?.about;
-    useEffect(() => {
-        tony.scrollToActiveNav();
-    }, []);
+
     const [toggle, setToggle] = useState(false);
 
     if (filteredAbout === undefined) {
         return <div className="w-full h-screen bg-black flex items-center justify-center text-center">Loading..</div>;
     }
+
     return (
         <>
             <Fragment>
@@ -92,37 +92,85 @@ function Home() {
                     </div>
                     <ul className="nav nav-ul">
                         <li>
-                            <Link className="nav-link" activeClass="active" to="home" spy={true} smooth={true} offset={50} duration={500}>
+                            <Link
+                                className={`nav-link ${activeLink === 'home' ? 'active' : ''}`}
+                                to="home"
+                                spy={true}
+                                smooth={true}
+                                offset={50}
+                                duration={500}
+                                onClick={() => setActiveLink('home')}
+                            >
                                 <i className="fas fa-house-damage" />
                                 <span>Home</span>
                             </Link>
                         </li>
                         <li>
-                            <Link className="nav-link" activeClass="active" to="about" spy={true} smooth={true} offset={50} duration={500}>
+                            <Link
+                                className={`nav-link ${activeLink === 'about' ? 'active' : ''}`}
+                                to="about"
+                                spy={true}
+                                smooth={true}
+                                offset={50}
+                                duration={500}
+                                onClick={() => setActiveLink('about')}
+                            >
                                 <i className="far fa-address-card" />
                                 <span>About Me</span>
                             </Link>
                         </li>
                         <li>
-                            <Link className="nav-link" activeClass="active" to="services" spy={true} smooth={true} offset={50} duration={500}>
+                            <Link
+                                className={`nav-link ${activeLink === 'services' ? 'active' : ''}`}
+                                to="services"
+                                spy={true}
+                                smooth={true}
+                                offset={50}
+                                duration={500}
+                                onClick={() => setActiveLink('services')}
+                            >
                                 <i className="fas fa-concierge-bell" />
                                 <span>Services</span>
                             </Link>
                         </li>
                         <li>
-                            <Link className="nav-link" activeClass="active" to="work" spy={true} smooth={true} offset={50} duration={500}>
+                            <Link
+                                className={`nav-link ${activeLink === 'work' ? 'active' : ''}`}
+                                to="work"
+                                spy={true}
+                                smooth={true}
+                                offset={50}
+                                duration={500}
+                                onClick={() => setActiveLink('work')}
+                            >
                                 <i className="fas fa-briefcase" />
                                 <span>Portfolio</span>
                             </Link>
                         </li>
                         <li>
-                            <Link className="nav-link" activeClass="active" to="blog" spy={true} smooth={true} offset={50} duration={500}>
+                            <Link
+                                className={`nav-link ${activeLink === 'blog' ? 'active' : ''}`}
+                                to="blog"
+                                spy={true}
+                                smooth={true}
+                                offset={50}
+                                duration={500}
+                                onClick={() => setActiveLink('blog')}
+                            >
                                 <i className="fas fa-blog" />
                                 <span>Blog</span>
                             </Link>
                         </li>
                         <li>
-                            <Link className="nav-link" activeClass="active" to="contactus" spy={true} smooth={true} offset={50} duration={500}>
+                            <Link
+                                className={`nav-link ${activeLink === 'contact' ? 'active' : ''}`}
+                                to="contactus"
+                                spy={true}
+                                smooth={true}
+                                offset={50}
+                                duration={500}
+                                onClick={() => setActiveLink('contact')}
+                            >
                                 <i className="fas fa-id-card-alt" />
                                 <span>Contact</span>
                             </Link>
@@ -181,10 +229,10 @@ function Home() {
                     {/* Work */}
                     <Work work={sortedFilteredProject} about={filteredAbout} />
                     {/* End work */}
-                    {/* Testiminails */}
-                    <Testiminails testimonials={filteredTestimonials} />
+                    {/* Testimonials */}
+                    <Testimonials testimonials={filteredTestimonials} />
                     <div>Testimonials</div>
-                    {/* End Testiminails */}
+                    {/* End Testimonials */}
                     {/* Blog */}
                     <Blog services={filteredServices} about={filteredAbout} />
                     {/* End Blog */}
