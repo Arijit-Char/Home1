@@ -38,50 +38,6 @@ const Skills = ({ skills }) => {
 
                         {/* end skill */}
                     </div>
-                    <div className="col-lg-5 m-15px-tb">
-                        <div className="row">
-                            <div className="col-6 m-15px-tb">
-                                <div className="feature-box-2 media align-items-center">
-                                    <div className="icon">
-                                        <i className="fas fa-compact-disc" />
-                                    </div>
-                                    <div className="media-body">
-                                        <h5>80 Albumes Listened</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-6 m-15px-tb">
-                                <div className="feature-box-2 media align-items-center">
-                                    <div className="icon">
-                                        <i className="fas fa-trophy" />
-                                    </div>
-                                    <div className="media-body">
-                                        <h5>15 Awards Won</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-6 m-15px-tb">
-                                <div className="feature-box-2 media align-items-center">
-                                    <div className="icon">
-                                        <i className="fas fa-mug-hot" />
-                                    </div>
-                                    <div className="media-body">
-                                        <h5>1 000 Cups of coffee</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-6 m-15px-tb">
-                                <div className="feature-box-2 media align-items-center">
-                                    <div className="icon">
-                                        <i className="fas fa-flag" />
-                                    </div>
-                                    <div className="media-body">
-                                        <h5>10 Countries Visited</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>

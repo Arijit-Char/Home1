@@ -193,25 +193,33 @@ function Home() {
                                         <h1>{filteredAbout.name}</h1>
                                         <h2>
                                             I Am Passionate &nbsp;
-                                            <TypingAnimation />
+                                            <TypingAnimation about={filteredAbout} />
                                         </h2>
                                         <p>{filteredAbout.quote}</p>
                                         <div className="btn-bar go-to">
-                                            <a className="m-btn m-btn-theme" href="#work">
+                                            <Link
+                                                className={`nav-link ${activeLink === 'work' ? 'active' : ''} m-btn m-btn-theme`}
+                                                to="work1"
+                                                onClick={() => setActiveLink('work')}
+                                            >
                                                 my work
-                                            </a>
-                                            <a className="m-btn m-btn-t-theme" href="#contactus">
+                                            </Link>
+                                            <Link
+                                                className={`nav-link ${activeLink === 'contact' ? 'active' : ''} m-btn m-btn-t-theme`}
+                                                to="footer"
+                                                onClick={() => setActiveLink('contact')}
+                                            >
                                                 Hire Me
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="go-to go-to-next">
-                            <a href="#about">
+                            <Link to="about">
                                 <span />
-                            </a>
+                            </Link>
                         </div>
                     </section>
                     {/* End Home Banner */}
@@ -224,13 +232,14 @@ function Home() {
                     <Skills skills={sortedFilteredSkills} />
                     {/* End fun */}
                     {/* resume */}
-                    <Services services={filteredServices} />
+                    <Services services={filteredServices} about={filteredAbout} />
                     {/* End resume */}
                     {/* Work */}
+
                     <Work work={sortedFilteredProject} about={filteredAbout} />
                     {/* End work */}
                     {/* Testimonials */}
-                    <Testimonials testimonials={filteredTestimonials} />
+                    <Testimonials testimonials={filteredTestimonials} about={filteredAbout} />
                     <div>Testimonials</div>
                     {/* End Testimonials */}
                     {/* Blog */}
@@ -238,7 +247,7 @@ function Home() {
                     {/* End Blog */}
                     <Contact about={filteredAbout} />
                 </main>
-                <Footer />
+                <Footer social={filteredSocialHandles}/>
             </Fragment>
         </>
     );
