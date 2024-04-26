@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { tony } from '../layouts/utils';
 
-const Skills = ({ skills }) => {
+const Skills = ({ skills, about }) => {
     useEffect(() => {
         tony.activeSkillProgress();
     }, []);
@@ -12,7 +12,10 @@ const Skills = ({ skills }) => {
                     <div className="col-md-12">
                         <div className="section-title">
                             <h3 className="dark-color text-uppercase">My Skills</h3>
-                            <p className="text-uppercase small">A Lead UX &amp; UI designer based in Canada</p>
+                            <p className="text-uppercase small">
+                                {' '}
+                                A {about.title} based in {about.address}
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -229,7 +229,7 @@ function Home() {
                     <About about={filteredAbout} social={filteredSocialHandles} />
                     {/* end about us */}
                     {/* fun */}
-                    <Skills skills={sortedFilteredSkills} />
+                    <Skills skills={sortedFilteredSkills} about={filteredAbout}  />
                     {/* End fun */}
                     {/* resume */}
                     <Services services={filteredServices} about={filteredAbout} />
