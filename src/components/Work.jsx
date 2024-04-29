@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Isotope from 'isotope-layout';
+import { motion, AnimatePresence } from 'framer-motion';
 import '../App.scss';
 
 const Work = ({ work, about }) => {
-    // Isotope
     const isotope = useRef();
     const [selectedProject, setSelectedProject] = useState(null);
 
@@ -53,7 +53,10 @@ const Work = ({ work, about }) => {
                             <div className="portfolio-box-01" onClick={() => handleProjectClick(project)}>
                                 <div className="portfolio-img">
                                     <img src={project.image.url} alt="image" />
-                                    <div
+                                    <motion.div
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
                                         className="portfolio-hover"
                                         style={{
                                             display: 'flex',
@@ -63,10 +66,7 @@ const Work = ({ work, about }) => {
                                             gap: '1rem',
                                         }}
                                     >
-                                        <div>
-                                            <h5>{project.title}</h5>
-                                        </div>
-
+                                        <h5>{project.title}</h5>
                                         <div className="project-links">
                                             <a href={project.liveurl} target="_blank" rel="noopener noreferrer" style={{ margin: '1.5rem' }}>
                                                 <i className="fas fa-external-link-alt"></i>
@@ -75,21 +75,10 @@ const Work = ({ work, about }) => {
                                                 <i className="fab fa-github"></i>
                                             </a>
                                         </div>
-                                        <div
-                                            className="more"
-                                            style={{
-                                                color: 'white',
-                                                width: '100%',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'center',
-                                                paddingTop: '1rem',
-                                                fontSize: '10px',
-                                            }}
-                                        >
+                                        <div className="more">
                                             <button onClick={() => handleProjectClick(project)}>More Details...</button>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 </div>
                             </div>
                         </div>
@@ -98,25 +87,37 @@ const Work = ({ work, about }) => {
             </div>
 
             {/* Modal */}
-            {selectedProject && (
-                <div className="modal">
-                    <div className="modal-content">
-                        <span className="close" onClick={handleCloseModal}>
-                            &times;
-                        </span>
-                        <h2>{selectedProject.title}</h2>
-                        <p>{selectedProject.description}</p>
-                        <div className="project-links">
-                            <a href={selectedProject.liveurl} target="_blank" rel="noopener noreferrer">
-                                <i className="fas fa-external-link-alt"></i>
-                            </a>
-                            <a href={selectedProject.githuburl} target="_blank" rel="noopener noreferrer">
-                                <i className="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            )}
+            <AnimatePresence>
+                {selectedProject && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="modal"
+                    >
+                        <motion.div
+                            initial={{ y: -50 }}
+                            animate={{ y: 0 }}
+                            exit={{ y: -50 }}
+                            className="modal-content"
+                        >
+                            <span className="close" onClick={handleCloseModal}>
+                                &times;
+                            </span>
+                            <h2>{selectedProject.title}</h2>
+                            <p>{selectedProject.description}</p>
+                            <div className="project-links">
+                                <a href={selectedProject.liveurl} target="_blank" rel="noopener noreferrer">
+                                    <i className="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href={selectedProject.githuburl} target="_blank" rel="noopener noreferrer">
+                                    <i className="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };
