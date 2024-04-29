@@ -54,9 +54,7 @@ const Work = ({ work, about }) => {
                                 <div className="portfolio-img">
                                     <img src={project.image.url} alt="image" />
                                     <motion.div
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
+                                      
                                         className="portfolio-hover"
                                         style={{
                                             display: 'flex',
