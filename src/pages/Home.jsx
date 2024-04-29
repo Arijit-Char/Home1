@@ -185,9 +185,12 @@ function Home() {
                         className="home-banner-01 bg-cover bg-center bg-no-repeat"
                         style={{ backgroundImage: 'url(static/img/home-banner.jpg)' }}
                     >
-                        <div className="container">
-                            <div className="row full-screen align-items-center p-100px-tb">
-                                <div className="col-md-6">
+                        <div
+                            className="container"
+                            style={{ display: 'flex', width: '100%', gap: '-5vh', alignItems: 'center', justifyContent: 'center' }}
+                        >
+                            <div className="row full-screen align-items-center p-100px-tb" style={{ width: '58%' }}>
+                                <div className="col-md-6" style={{ maxWidth: '100%' }}>
                                     <div className="ht-text">
                                         <h6>Hello there...</h6>
                                         <h1>{filteredAbout.name}</h1>
@@ -215,6 +218,20 @@ function Home() {
                                     </div>
                                 </div>
                             </div>
+                            <div
+                                style={{
+                                    width: '528px',
+                                    height: '728px',
+                                    border: '10px solid #f47bbc',
+                                    overflow: 'hidden',
+                                    borderRadius: '50px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                <img src={filteredAbout.avatar.url} alt="image" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            </div>
                         </div>
                         <div className="go-to go-to-next">
                             <Link to="about">
@@ -229,7 +246,7 @@ function Home() {
                     <About about={filteredAbout} social={filteredSocialHandles} />
                     {/* end about us */}
                     {/* fun */}
-                    <Skills skills={sortedFilteredSkills} about={filteredAbout}  />
+                    <Skills skills={sortedFilteredSkills} about={filteredAbout} />
                     {/* End fun */}
                     {/* resume */}
                     <Services services={filteredServices} about={filteredAbout} />
@@ -247,7 +264,7 @@ function Home() {
                     {/* End Blog */}
                     <Contact about={filteredAbout} />
                 </main>
-                <Footer social={filteredSocialHandles}/>
+                <Footer social={filteredSocialHandles} />
             </Fragment>
         </>
     );
