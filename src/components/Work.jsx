@@ -54,7 +54,6 @@ const Work = ({ work, about }) => {
                                 <div className="portfolio-img">
                                     <img src={project.image.url} alt="image" />
                                     <motion.div
-                                      
                                         className="portfolio-hover"
                                         style={{
                                             display: 'flex',
@@ -87,29 +86,19 @@ const Work = ({ work, about }) => {
             {/* Modal */}
             <AnimatePresence>
                 {selectedProject && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="modal"
-                    >
-                        <motion.div
-                            initial={{ y: -50 }}
-                            animate={{ y: 0 }}
-                            exit={{ y: -50 }}
-                            className="modal-content"
-                        >
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="modal">
+                        <motion.div initial={{ y: -50 }} animate={{ y: 0 }} exit={{ y: -50 }} className="modal-content">
                             <span className="close" onClick={handleCloseModal}>
                                 &times;
                             </span>
-                            <h2>{selectedProject.title}</h2>
+                            <h2 style={{fontSize:"1.5rem",fontWeight:"600",padding:"0.75rem"}}>{selectedProject.title}</h2>
                             <p>{selectedProject.description}</p>
                             <div className="project-links">
                                 <a href={selectedProject.liveurl} target="_blank" rel="noopener noreferrer">
-                                    <i className="fas fa-external-link-alt"></i>
+                                    <i className="fas fa-external-link-alt"  style={{ margin: '1.5rem' }}></i>
                                 </a>
                                 <a href={selectedProject.githuburl} target="_blank" rel="noopener noreferrer">
-                                    <i className="fab fa-github"></i>
+                                    <i className="fab fa-github"  style={{ margin: '1.5rem' }}></i>
                                 </a>
                             </div>
                         </motion.div>
